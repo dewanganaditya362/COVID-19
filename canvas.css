@@ -1,0 +1,262 @@
+.nav{
+    background-color: black;
+}
+
+.nav .links{
+    padding-top: 1em;
+    display: flex;
+    position: absolute;
+    right:2em;
+}
+
+span a{
+    padding-left:1.5em;
+   text-decoration: none;
+    color:aliceblue;
+    font-size: 1.4em;
+}
+
+span a:hover{
+    padding-left:1.5em;
+   text-decoration: none;
+    color:darkgrey;
+}
+
+.nav .logo{
+    padding-left: 3em;
+    padding-top: 1em;
+    font-family: 'Chelsea Market', cursive;
+    color:deepskyblue;
+}
+
+
+.analytics h1{
+    color: cornsilk;
+    text-align: center;
+    font-family: sans-serif;
+    padding:0.3em;
+    margin: 0 auto;
+    font-family: 'Chelsea Market', cursive;
+}
+
+.analytics{
+    background-color: darkcyan;
+    width:100%;
+}
+
+main{
+    width:100%;
+    margin:0 auto;
+}
+
+.stats{
+    width:100%;
+    height:50em;
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("file:///C:/Users/clc/Desktop/COVID-19_TRACKER_HTML_CSS_JAVASCRIPT-master/starter%20template/resources/img/bg.jpg");
+    background-size: cover;
+}
+
+.latest-reports{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 2em;
+    padding-bottom: 4em;
+  
+}
+
+
+.title,.name{
+    font-size: 2.5em;
+    
+}
+
+.country-change{
+    font-size: 1.7em;
+    color:darkgray;
+    cursor:pointer;
+}
+.name{
+    color:blueviolet;
+    font-weight: bolder;
+}
+.country-change:hover{
+    color:whitesmoke;
+}
+
+.total-tests{
+    color:gold;
+    display:none;
+}
+.total-cases{
+    color:aquamarine; 
+    z-index: 0;
+}
+
+.active-cases{
+    color:salmon;
+}
+.recovered{
+     color:lawngreen !important;
+     z-index: 0;
+}
+
+.deaths{
+    color:red;
+     z-index: 0;
+}
+
+.value{
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.new-value{
+    color:snow;
+    font-size:1.5em;
+}
+
+.search-country{
+    position:relative;
+    background: black;
+}
+
+.search-box{
+    position:absolute;
+    display: flex;
+     align-items: center;
+    justify-content: space-between;
+    
+   
+   padding: 0px;
+    height:30px;
+   
+    background-color: black;
+     z-index: 1;
+    
+}
+
+.search-box input{
+    width:23em;
+    height:2em;
+    background-color: transparent;
+    
+    color:white;
+}
+
+.search-box img{
+    width:1em;
+    height:1em;
+}
+
+.country-list {
+    display:flex;
+    justify-content: space-between;
+    position:absolute;
+    top:1.85em;
+    left:0em;
+    color:floralwhite;
+    background: black;
+    width:24.5em;
+    height:15em;
+    
+    overflow-y:scroll;
+    z-index:1;
+}
+
+.fadeIn{
+    animation: fade 0.5s ease-in-out;
+}
+
+.country-change{
+    width:1em;
+}
+/* width */
+.country-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.country-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.country-list::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.country-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.country-list ul{
+    padding-top: 0.3em;
+    padding-left:0em;
+    padding-right:1em;
+}
+.country-list ul li{
+    list-style: none;
+    cursor:pointer;
+    padding-top:1em;
+    padding-left:1em;
+    
+}
+
+.country-list ul li:hover{
+    border-left: 2px solid white;
+    border-left-style: outset;
+    
+}
+
+.hide{
+    display: none;
+}
+
+.axes_line_chart{
+    padding-top: 2em;
+    font-size: 2em;
+    color: aqua;
+}
+
+footer{
+    width:100%;
+    background-color: darkcyan;
+    text-align: center;
+    font-family: 'Chelsea Market', cursive;
+    color:cornsilk;
+    height:3em;
+    vertical-align: middle;
+    
+}
+
+@media only screen and (max-width:600px)
+{
+    .latest-reports{
+        
+        display: flex;
+        flex-direction: column;
+        padding-left:3em; 
+    }
+    
+    span a{
+        font-size: 1.3em;
+    }
+    
+    .nav .links{
+         padding-top: 1.5em;
+    }
+    
+    .nav .logo{
+        width:70%;
+        height:100%;
+        padding-bottom: 1em;
+    }
+    
+    .stats{
+        height: 80em;
+    }
+}
+
+
