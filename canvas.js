@@ -10,11 +10,7 @@ const active_cases = document.querySelector(".active-cases .value");
 
 const ctx = document.getElementById("axes_line_chart").getContext("2d");
 
-let app_data = [],
-    cases_list = [],
-    recovered_list = [],
-    deaths_list = [],
-    dates = []; 
+let app_data = [],dates = []; 
 
 let country_code = geoplugin_countryCode();
 let user_country;
@@ -41,27 +37,20 @@ function fetchData(user_country){
 })
 
 .then(data=>{
+       app_data = [];
+       dates = [];
+       dates = Object.keys(data);
        
-       country_name_element.innerHTML = "Loading...";
-       country_name_element.innerHTML = data.response[0].country;
-       total_cases_element.innerHTML = data.response[0].cases.total;
+       dates.forEach(date => {
+           let DATA = data[date];
+           
+           app_data.push(DATA);
+       });
+      
+   })
     
-            new_cases_element.innerHTML = data.response[0].cases.new;
-       
-     
-     recovered = data.response[0].cases.recovered;
-     recovered_element.innerHTML = data.response[0].cases.recovered;
-       
-       death =data.response[0].deaths.total;
-       deaths_element.innerHTML = data.response[0].deaths.total;
-       new_deaths_element.innerHTML = data.response[0].deaths.new;
-       
-       total_tests.innerHTML = data.response[0].tests.total;
-       
-       active = data.response[0].cases.total - recovered - death;
-       active_cases.innerHTML =`${data.response[0].cases.total - recovered - death}`;
-       
-       axesLinearChart();
+    .then(() => {
+       updateUI();
    })
     
 .catch(err => {
@@ -71,6 +60,34 @@ function fetchData(user_country){
 }
 
 fetchData(user_country);
+
+function updateUI(){
+    updateStats();
+    axesLinearChart();
+}
+
+function updateStats(){
+    
+     country_name_element.innerHTML = app_data[4][0].country;
+     total_cases_element.innerHTML = app_data[4][0].cases.total;
+    
+     new_cases_element.innerHTML = app_data[4][0].cases.new;
+       
+     
+     recovered = app_data[4][0].cases.recovered;
+     recovered_element.innerHTML = app_data[4][0].cases.recovered;
+       
+     death =app_data[4][0].deaths.total;
+     deaths_element.innerHTML = app_data[4][0].deaths.total;
+     new_deaths_element.innerHTML = app_data[4][0].deaths.new;
+       
+       total_tests.innerHTML = app_data[4][0].tests.total;
+       
+       active = app_data[4][0].cases.total - recovered - death;
+    
+       active_cases.innerHTML =`${app_data[4][0].cases.total - recovered - death}`;
+       
+}
 
 let myPieChart;
 
@@ -114,3 +131,4 @@ function axesLinearChart(){
     
    
 }
+
